@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enter YouTube URL</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #007BF5;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .header {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .premium-btn {
+      background-color: #FFD700;
+      color: black;
+      font-weight: bold;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .premium-btn:hover {
+      background-color: #ffc800;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #aaa;
+      max-width: 600px;
+      font-size: 16px;
+      margin-bottom: 40px;
+    }
+
+    #videoInputURL {
+      width: 80%;
+      max-width: 400px;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 3px solid #007BF5;
+      background-color: black;
+      color: #007BF5;
+      margin-bottom: 20px;
+    }
+
+    #playVideoBtn {
+      height: 44px;
+      width: 160px;
+      border-radius: 10px;
+      box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.5);
+      background-color: #007BF5;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    #playVideoBtn:hover {
+      background-color: white;
+      color: #007BF5;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <button class="premium-btn">Premium 🔒</button>
+  </div>
+
+  <div class="container">
+    <h1>Study Distraction Free</h1>
+    <p>Paste any YouTube video,and dont get distracted from recommend videos</p>
+
+    <input type="url" id="videoInputURL" placeholder="Paste any YouTube URL..." />
+    <button id="playVideoBtn">Play</button>
+  </div>
+
+  <script>
+    const input = document.getElementById('videoInputURL');
+    const playBtn = document.getElementById('playVideoBtn');
+    playBtn.addEventListener('click', () => {
+      const url = input.value.trim();
+      if (!url) {
+        alert('Please paste a YouTube video, playlist, or channel URL.');
+        return;
+      }
+      window.location.href = 'video.html?url=' + encodeURIComponent(url);
+    });
+  </script>
+</body>
+</html>
